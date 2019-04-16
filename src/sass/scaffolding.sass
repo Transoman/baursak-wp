@@ -25,7 +25,7 @@ body
   min-width: 320px
   font-family: $main-font
   font-size: 14px
-  line-height: 1.6
+  line-height: 1.4
   color: $main-color
 
 img
@@ -33,11 +33,26 @@ img
   height: auto
 
 a
-  color: #000
+  color: $accent
   +trans
   &:hover, &:focus
-    color: $accent
+    color: $dark-accent-color
     outline: none
+    text-decoration: none
+
+h1, h2, h3, h4, h5, h6
+  font-family: $ark-font
+  color: $header-link-color
+
+h1
+  font-size: 54px
+  line-height: 1.1
+
+h2
+  font-size: 36px
+
+section
+  position: relative
 
 /* Hidden element */
 .visually-hidden

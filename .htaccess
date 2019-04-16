@@ -6,5 +6,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /app/$1
 RewriteCond %{HTTP_HOST} ^(www.)?baursak.loc$
-RewriteRule ^(/)?$ app/index.php [L] 
+RewriteRule ^(/)?$ app/index.php [L]
 </IfModule>

@@ -1,11 +1,11 @@
 "use strict";
 
 global.$ = {
-  url: 'example.loc',
+  url: 'baursak.loc',
   path: {
     task: require('./gulp/path/tasks.js'),
-    source: './src/',
-    build: './app/content/themes/mytheme/'
+    source: 'src/',
+    build: 'app/content/themes/baursak/'
   },
   gulp: require('gulp'),
   browserSync: require('browser-sync').create(),
@@ -28,7 +28,7 @@ $.gulp.task('dev', $.gulp.series(
 ));
 
 $.gulp.task('build', $.gulp.series(
-  // 'clean',
+  'clean',
   $.gulp.parallel(
     'fonts',
     'styles:build-min',

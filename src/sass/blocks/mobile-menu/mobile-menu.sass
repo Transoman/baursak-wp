@@ -1,0 +1,30 @@
+.mobile-menu
+  position: fixed
+  top: 0
+  right: 0
+  z-index: 10
+  height: 100%
+  width: 290px
+  padding: 40px 20px
+  background-color: #fff
+  overflow-y: auto
+  +smooth-scroll
+  box-shadow: 0 5px 15px rgba(#000, 0.15)
+  +trans
+  transform: translateX(150%)
+  &.is-active
+    transform: translateX(0)
+  &__wrap
+    margin-bottom: 30px
+  &__list
+    margin: 0 0 10px 0
+    padding: 0
+    list-style: none
+    &:last-child
+      margin-bottom: 0
+    li
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
+  &__phone
+    margin-bottom: 30px

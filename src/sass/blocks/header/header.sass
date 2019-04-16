@@ -1,0 +1,64 @@
+.header
+  padding-top: 10px
+  .container
+    display: flex
+  &__left, &__right
+    width: 42.73%
+  &__middle
+    position: relative
+    width: 14.54%
+    min-width: 70px
+    text-align: center
+    .logo
+      display: block
+      position: absolute
+      left: 50%
+      transform: translateX(-50%)
+      width: 130px
+      z-index: 1
+      +r(992)
+        width: 75px
+      +r(576)
+        width: 70px
+      &::before
+        content: ''
+        position: absolute
+        width: 155px
+        height: 155px
+        left: 50%
+        bottom: -15px
+        transform: translateX(-50%)
+        background-color: #fff
+        border-radius: 50%
+        z-index: -1
+        +r(992)
+          width: 115px
+          height: 115px
+          bottom: -10px
+  &__left
+    +r(576)
+      display: none
+  &__right
+    +r(576)
+      flex-grow: 1
+    .header
+      &__bottom
+        .nav-list
+          justify-content: flex-end
+  &__top
+    display: flex
+    padding: 15px 0
+    position: relative
+  &__bottom
+    padding: 15px 0
+    +r(992)
+      display: none
+  &__phone
+    margin-right: 55px
+  &__tools
+    margin-left: auto
+    +r(992)
+      margin-right: 50px
+  &__small-schedule
+    +r(992)
+      display: none

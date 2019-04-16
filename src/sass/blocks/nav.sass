@@ -1,27 +1,69 @@
+.nav-list
+  margin: 0
+  padding: 0
+  list-style: none
+  display: flex
+  align-items: center
+  li
+    position: relative
+    margin-right: 70px
+    +r(1200)
+      margin-right: 30px
+    &::after
+      content: ''
+      position: absolute
+      right: -35px
+      top: 50%
+      width: 3px
+      height: 3px
+      margin-top: -1.5px
+      border-radius: 50%
+      background-color: $descr-color
+      +r(1200)
+        right: -17px
+    &:last-child
+      margin-right: 0
+      &::after
+        display: none
+  a
+    font-size: 13px
+    font-weight: 500
+    text-transform: uppercase
+    color: $main-color
+    &:hover, &:focus
+      color: $accent
+
+
+
 .nav-toggle
   display: none
   position: absolute
   right: 0
-  top: 17px
+  top: 50%
   width: 28px
   height: 15px
   padding: 0
-  margin: 0
+  margin: -7.5px 0 0 0
   outline: none
   border: none
   background: none
   z-index: 101
   cursor: pointer
-  +transition
-  &:focus
+  +r(992)
+    display: block
+  &:hover, &:focus
     outline: none
+    .nav-toggle
+      &__line
+        &::before, &::after
+          width: 100%
   &__line
     position: relative
     display: block
     height: 2px
     width: 100%
     background: $accent
-    +transition
+    +trans
     &::after, &::before
       content: ''
       position: absolute
@@ -33,14 +75,22 @@
       +transition
     &::before
       top: -6px
+      width: 70%
     &::after
       top: 6px
+      width: 70%
   &.active
+    position: fixed
+    top: 20px
+    right: 20px
+    margin-top: 0
     .nav-toggle__line
       background: transparent
       &::after
         top: 0
         transform: rotate(45deg)
+        width: 100%
       &::before
         top: 0
         transform: rotate(-45deg)
+        width: 100%
