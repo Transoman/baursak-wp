@@ -61,6 +61,11 @@ function baursak_the_icon($icon_name, $icon_class = false) {
   echo $html;
 }
 
+function baursak_get_icon($icon_name, $icon_class = false) {
+  $html = '<svg class="'. $icon_class .'"><use xlink:href="'. THEME_URL .'/images/svg/symbol/sprite.svg#'. $icon_name .'"></use></svg>';
+  return $html;
+}
+
 /**
  * Cart Count
  */
@@ -73,4 +78,29 @@ function baursak_header_cart_count() {
 		?>
   <span class="tools__count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
 <?php
+}
+
+/**
+ * Get Featured Products
+ */
+function get_featured_products($count = null) {
+  $paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+  $args = array(
+    'post_type' => 'product',
+    'post_status' => 'publish',
+    'posts_per_page' => $count ? $count : get_option('posts_per_page'),
+    'paged' => $paged,
+    'order' => 'ASC',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'product_visibility',
+        'field' => 'name',
+        'terms' => 'featured',
+      )
+    )
+  );
+
+  $featured_products = new WP_Query( $args );
+
+  return $featured_products;
 }

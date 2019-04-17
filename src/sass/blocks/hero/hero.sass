@@ -5,3 +5,23 @@
     position: center
     size: cover
     color: $bg-color
+  +r(992)
+    padding: 80px 0 40px
+  +r(767)
+    padding: 50px 0 30px
+  &__content
+    +r(992)
+      text-align: center
+      margin-bottom: 30px
+    p
+      color: $descr-color
+      &:last-of-type
+        margin-bottom: 50px
+  &__specials-slider-wrap
+    position: absolute
+    top: -75px
+    max-width: 370px
+    +r(992)
+      position: static
+      top: auto
+      margin: 0 auto

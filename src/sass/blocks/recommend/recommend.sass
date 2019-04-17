@@ -1,0 +1,35 @@
+.recommend
+  padding-top: 100px
+  +r(767)
+    padding-top: 50px
+  &__content
+    color: $descr-color
+    +r(767)
+      margin-bottom: 30px
+      text-align: center
+    h2
+      font-size: 30px
+      +r(576)
+        font-size: 24px
+    &-bottom
+      display: flex
+      align-items: center
+      margin-top: 70px
+      +r(767)
+        margin-top: 30px
+      a
+        font-size: 13px
+        font-weight: 600
+  &__slider-btns
+    margin-left: auto
+    .swiper-button-prev,
+    .swiper-button-next
+      position: static
+      margin: 0
+      display: inline-flex
+
+.recommend-slider
+  .swiper-slide
+    display: flex
+    flex-direction: column
+    height: auto

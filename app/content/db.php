@@ -1,0 +1,1 @@
+C:/OSPanel/domains/baursak.loc/app/content/plugins/query-monitor/wp-content/db.php

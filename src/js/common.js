@@ -24,9 +24,36 @@ jQuery(document).ready(function($) {
   // Slider
   new Swiper('.specials-slider', {
     spaceBetween: 70,
+    speed: 1000,
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
+    },
+    autoplay: {
+      delay: 3000,
+    }
+  });
+
+  new Swiper('.recommend-slider', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    speed: 1000,
+    autoplay: {
+      delay: 3000,
+    },
+    navigation: {
+      nextEl: '.recommend__slider-btns .swiper-button-next',
+      prevEl: '.recommend__slider-btns .swiper-button-prev',
+    },
+    breakpoints: {
+      1200: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      992: {
+        slidesPerView: 1,
+        spaceBetween: 30
+      }
     }
   });
 
