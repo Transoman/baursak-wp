@@ -1,0 +1,33 @@
+.footer
+  padding: 10px 0
+  background-color: $bg-color
+  .container
+    display: flex
+    align-items: center
+    justify-content: space-between
+    +r(767)
+      flex-direction: column
+      text-align: center
+  &__logo
+    width: 33.33%
+    +r(767)
+      width: 100%
+      justify-content: center
+      margin-bottom: 20px
+  &__copyright
+    width: 33.33%
+    text-align: center
+    +r(767)
+      order: 2
+      width: 100%
+  &__phone
+    margin-left: auto
+    +r(767)
+      margin-left: 0
+      margin-bottom: 20px
+
+.copyright
+  margin: 0
+  font-size: 13px
+  font-weight: 500
+  color: $descr-color

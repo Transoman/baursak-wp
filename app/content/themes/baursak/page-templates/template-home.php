@@ -120,6 +120,24 @@
           </div>
         </section>
 
+      <?php elseif( get_row_layout() == 'about' ): ?>
+
+        <section class="s-about">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <?php echo wp_get_attachment_image(get_sub_field('img'), 'large'); ?>
+              </div>
+              <div class="col-lg-6">
+                <div class="s-about__content">
+                  <h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+                  <?php the_sub_field('descr'); ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       <?php endif;
 
     endwhile;

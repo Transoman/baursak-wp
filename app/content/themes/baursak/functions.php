@@ -176,9 +176,15 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
+ * ACF
+ */
+require get_template_directory() . '/inc/acf.php';
+
+/**
  * Woocommerce functions
  */
 require get_template_directory() . '/inc/wc-functions.php';
+
 
   add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 

@@ -23,13 +23,17 @@
 
           <div class="phone header__phone">
             <a href="#" class="phone__callback callback_open">Перезвоните мне!</a>
-            <a href="tel:88003012383" class="phone__tel">8 (800) 301-23-83</a>
+            <?php if (get_field('phone', 'option')): ?>
+              <a href="tel:<?php echo preg_replace('![^0-9]+!', '', get_field('phone', 'option')); ?>" class="phone__tel"><?php the_field('phone', 'option'); ?></a>
+            <?php endif; ?>
           </div>
 
-          <div class="small-schedule header__small-schedule">
-            <p class="small-schedule__descr">Работа интернет магазина</p>
-            <p class="small-schedule__time">с 10:00 до 21:00</p>
-          </div>
+          <?php if (get_field('schedule', 'option')): ?>
+            <div class="small-schedule header__small-schedule">
+              <p class="small-schedule__descr">Работа интернет магазина</p>
+              <p class="small-schedule__time"><?php the_field('schedule', 'option'); ?></p>
+            </div>
+          <?php endif; ?>
 
         </div>
 
@@ -127,13 +131,17 @@
 
         <div class="phone mobile-menu__phone">
           <a href="#" class="phone__callback callback_open">Перезвоните мне!</a>
-          <a href="tel:88003012383" class="phone__tel">8 (800) 301-23-83</a>
+          <?php if (get_field('phone', 'option')): ?>
+            <a href="tel:<?php echo preg_replace('![^0-9]+!', '', get_field('phone', 'option')); ?>" class="phone__tel"><?php the_field('phone', 'option'); ?></a>
+          <?php endif; ?>
         </div>
 
-        <div class="small-schedule mobile-menu__small-schedule">
-          <p class="small-schedule__descr">Работа интернет магазина</p>
-          <p class="small-schedule__time">с 10:00 до 21:00</p>
-        </div>
+        <?php if (get_field('schedule', 'option')): ?>
+          <div class="small-schedule mobile-menu__small-schedule">
+            <p class="small-schedule__descr">Работа интернет магазина</p>
+            <p class="small-schedule__time"><?php the_field('schedule', 'option'); ?></p>
+          </div>
+        <?php endif; ?>
       </div>
 
     </div>
