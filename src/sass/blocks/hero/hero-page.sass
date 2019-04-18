@@ -1,0 +1,30 @@
+.hero-page
+  z-index: 1
+  padding: 70px 0 40px
+  background:
+    repeat: no-repeat
+    position: center bottom
+    size: cover
+  +r(767)
+    text-align: center
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    z-index: -1
+    background-image: linear-gradient(to right, $dark-accent-color, rgba(#fff, 0))
+    +r(767)
+      background: rgba($dark-accent-color, 0.85)
+  h1
+    margin-bottom: 5px
+    font-size: 36px
+    color: #fff
+    +r(767)
+      font-size: 32px
+    +r(576)
+      font-size: 26px
+  .breadcrumbs
+    color: #fff

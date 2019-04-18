@@ -2,11 +2,22 @@
   display: flex
   align-items: center
   &__item
+    position: relative
     margin-right: 25px
     +r(992)
       margin-right: 10px
     &:last-child
       margin-right: 0
+    &--search
+      +r(992)
+        position: static
+      &.is-active
+        .small-form-search
+          width: 230px
+          opacity: 1
+          visibility: visible
+          +r(992)
+            width: 100%
   &__btn
     position: relative
     display: flex
@@ -18,14 +29,15 @@
     border-radius: 50%
     border: 1px solid $border-color
     text-align: center
-    background: none
+    background: #fff
     +trans
     +r(992)
       width: 40px
       height: 40px
-    &:hover
+    &:hover, &:focus
       background-color: $accent
       border-color: $accent
+      outline: none
       .tools
         &__icon
           fill: #fff
@@ -52,3 +64,5 @@
       font-size: 8px
       line-height: 15px
       padding: 0 5px
+    +r(576)
+      line-height: 12px

@@ -75,3 +75,22 @@
     }
     return $currency_symbol;
   }
+
+
+  add_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10 );
+
+  /**
+   * Output the view cart button.
+   */
+  function woocommerce_widget_shopping_cart_button_view_cart() {
+    echo '<a href="' . esc_url( wc_get_cart_url() ) . '" class="to-cart wc-forward">' . esc_html__( 'View cart', 'woocommerce' ) . '</a>';
+  }
+
+  remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20 );
+  add_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 9 );
+  /**
+   * Output the proceed to checkout button.
+   */
+  function woocommerce_widget_shopping_cart_proceed_to_checkout() {
+    echo '<a href="' . esc_url( wc_get_checkout_url() ) . '" class="btn checkout wc-forward">' . esc_html__( 'Checkout', 'woocommerce' ) . '</a>';
+  }

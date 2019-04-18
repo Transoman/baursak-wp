@@ -1,0 +1,31 @@
+.small-form-search
+  position: absolute
+  top: 0
+  right: 0
+  width: 0
+  z-index: 1
+  opacity: 0
+  visibility: hidden
+  overflow: hidden
+  +trans
+  +r(992)
+    top: 80px
+  &__group
+    position: relative
+  input
+    width: 100%
+    border-radius: 25px
+    border: 1px solid $border-color
+    height: 45px
+    padding: 10px 50px 10px 15px
+    +trans
+    +r(992)
+      height: 40px
+    &:focus
+      outline: none
+      border-color: $accent
+  .tools__btn
+    position: absolute
+    top: 0
+    right: 0
+    border-color: $accent

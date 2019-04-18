@@ -1,0 +1,108 @@
+.small-cart
+  position: fixed
+  top: 0
+  right: 0
+  width: 350px
+  height: 100%
+  padding: 25px 40px 40px
+  background-color: #fff
+  box-shadow: 0 0 5px rgba(#000, 0.06)
+  overflow-y: auto
+  +trans
+  transform: translateX(100%)
+  z-index: 102
+  +r(767)
+    width: 100%
+    padding: 25px 15px 25px
+  &.is-active
+    transform: translateX(0)
+  &__header
+    display: flex
+    align-items: center
+    margin-bottom: 25px
+  &__title
+    margin: 0
+  &__close
+    position: relative
+    width: 45px
+    height: 45px
+    padding: 0
+    border-radius: 50%
+    border: 1px solid $border-color
+    background-color: #fff
+    margin-left: auto
+    +trans
+    &:hover, &:focus
+      background-color: $accent
+      border-color: $accent
+      outline: none
+      &::before, &::after
+        background-color: #fff
+    &::before, &::after
+      content: ''
+      position: absolute
+      top: 21px
+      right: 13px
+      width: 40%
+      height: 1px
+      background-color: $main-color
+      +trans
+    &::before
+      transform: rotate(45deg)
+    &::after
+      transform: rotate(-45deg)
+
+
+.woocommerce.widget_shopping_cart
+  .cart_list
+    margin-bottom: 50px
+    li
+      padding:
+        bottom: 0
+        left: 75px
+      margin-bottom: 20px
+      img
+        position: absolute
+        top: 0
+        left: 0
+        float: none
+        width: 60px
+        margin: 0
+      a:not(.remove)
+        margin-right: 15px
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
+        display: block
+        color: $header-link-color
+        &:hover, &:focus
+          color: $accent
+      a.remove
+        left: auto
+        right: -10px
+  .quantity
+    display: block
+    margin-top: 5px
+    span
+      font-weight: 700
+      color: $dark-accent-color
+      text-transform: uppercase
+    .woocommerce-Price-currencySymbol
+      font-size: 10px
+  .total
+    border-top: 1px solid $border-color
+    padding: 15px 0
+    .amount
+      float: right
+      font-weight: 700
+      color: $dark-accent-color
+      text-transform: uppercase
+      .woocommerce-Price-currencySymbol
+        font-size: 12px
+  .buttons
+    text-align: center
+    .btn
+      width: 100%
+      margin: 0 0 15px
+    .to-cart
+      margin: 0

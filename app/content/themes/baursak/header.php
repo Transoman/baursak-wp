@@ -63,17 +63,31 @@
         <div class="header__top">
 
           <div class="tools header__tools">
-            <div class="tools__item">
-              <button type="button" class="tools__btn small-search__btn btn-search">
+            <div class="tools__item tools__item--search">
+              <button type="button" class="tools__btn tools__btn--search">
                 <?php baursak_the_icon('search', 'tools__icon small-search__icon'); ?>
               </button>
+              <form action="<?php esc_url(home_url('/')); ?>" method="get" class="small-form-search">
+                <div class="small-form-search__group">
+                  <input type="text" name="s" placeholder="Поиск...">
+                  <button type="submit" class="tools__btn">
+                    <?php baursak_the_icon('search', 'tools__icon small-search__icon'); ?>
+                  </button>
+                </div>
+              </form>
             </div>
             <div class="tools__item tools__item--cart">
               <a href="<?php echo wc_get_cart_url(); ?>" class="tools__btn">
                 <?php baursak_the_icon('cart', 'tools__icon small-cart__icon'); ?>
                 <?php baursak_header_cart_count(); ?>
               </a>
-              <?php //the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+              <div class="small-cart">
+                <div class="small-cart__header">
+                  <h4 class="small-cart__title">Корзина</h4>
+                  <button type="button" class="small-cart__close"></button>
+                </div>
+                <?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
+              </div>
             </div>
             <div class="tools__item">
               <a href="#" class="tools__btn user-menu__link">
