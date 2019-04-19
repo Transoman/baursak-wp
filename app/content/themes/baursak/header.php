@@ -86,7 +86,7 @@
                   <h4 class="small-cart__title">Корзина</h4>
                   <button type="button" class="small-cart__close"></button>
                 </div>
-                <?php the_widget( 'WC_Widget_Cart', false ); ?>
+                <?php the_widget( 'Custom_WC_Widget_Cart', false ); ?>
               </div>
             </div>
             <div class="tools__item">

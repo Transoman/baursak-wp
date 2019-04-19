@@ -185,6 +185,11 @@ require get_template_directory() . '/inc/acf.php';
  */
 require get_template_directory() . '/inc/wc-functions.php';
 
+/**
+ * Widgets
+ */
+require get_template_directory() . '/inc/widgets.php';
+
 
   add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 
