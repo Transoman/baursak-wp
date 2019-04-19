@@ -58,6 +58,33 @@ jQuery(document).ready(function($) {
     }
   });
 
+  new Swiper('.partners-list', {
+    slidesPerView: 5,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      767: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      576: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    }
+  });
+
   // Toggle search form
   $('.tools__btn--search').click(function(e) {
     e.preventDefault();

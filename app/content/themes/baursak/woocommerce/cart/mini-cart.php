@@ -80,7 +80,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 
   <div class="cart-empty">
     <div class="cart-empty__icon-wrap">
-      <?php esc_html(baursak_get_icon('cart', 'cart-empty__icon')); ?>
+      <?php echo baursak_get_icon('cart', 'cart-empty__icon'); ?>
     </div>
     <h4 class="cart-empty__title"><?php _e( 'No products in the cart.', 'woocommerce' ); ?></h4>
     <a href="/shop" class="btn">В каталог</a>

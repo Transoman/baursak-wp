@@ -1,0 +1,52 @@
+.s-media
+  padding-bottom: 0
+  background-color: $header-link-color
+  .section-head
+    max-width: 910px
+    margin: 0 auto 40px
+  .section-title
+    color: #fff
+
+.media-list
+  &__item
+    margin-bottom: 50px
+    color: #fff
+  &__wrap
+    padding-right: 100px
+    +r(1200)
+      padding-right: 50px
+  &__publisher
+    font-size: 12px
+    font-weight: 600
+    span
+      font-weight: 400
+      color: #999
+  &__img-wrap
+    position: relative
+    border-radius: 6px
+    overflow: hidden
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      background-image: linear-gradient(rgba($header-link-color, 0), rgba($header-link-color, 1))
+    img
+      width: 100%
+  &__title
+    font-size: 16px
+    color: #fff
+    height: 45px
+    +r(767)
+      height: auto
+  &__descr
+    position: relative
+    margin:
+      top: -20px
+      left: 35px
+    font-size: 12px
+    line-height: 1.8
+    p
+      margin: 0
