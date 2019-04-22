@@ -1,4 +1,66 @@
-// Form
+.form-inline
+  display: flex
+  align-items: center
+  flex-wrap: wrap
+  & > *:not(:last-child)
+    margin-right: 30px
+    +r(767)
+      margin-right: 0
+      margin-bottom: 30px
 
-//input
-//  width: 100%
+input,
+select,
+textarea
+  width: 100%
+  padding: 14px 25px
+  border-radius: 25px
+  background: $dark-accent-color
+  border: 1px solid $border-color
+  font-size: 14px
+  color: #fff
+  box-shadow: none
+  appearance: none
+  +trans
+  &::placeholder
+    color: inherit
+  &:hover
+    border-color: darken($border-color, 5%)
+  &:focus
+    border-color: $accent
+    outline: none
+textarea
+  height: 130px
+input[type="submit"]
+  width: auto
+  &:focus
+    outline: none
+
+span.wpcf7-not-valid-tip
+  position: absolute
+  font-size: 10px
+  top: calc(100% + 5px)
+  left: 15px
+  color: tomato
+  text-align: left
+
+div.wpcf7-response-output
+  max-width: 750px
+  font-weight: 500
+  text-align: left
+  margin:
+    top: 50px
+    right: auto
+    left: auto
+  padding: 15px
+  border-radius: 6px
+  border: 0
+
+div.wpcf7-validation-errors
+  background-color: #fdf5aa
+  box-shadow: 0 5px 15px rgba(#fdf5aa, 0.2)
+  color: #d09a74
+
+div.wpcf7-mail-sent-ok
+  background-color: #c1f9e4
+  box-shadow: 0 5px 15px rgba(#c1f9e4, 0.2)
+  color: #76958f

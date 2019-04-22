@@ -1,0 +1,33 @@
+.question
+  background:
+    repeat: no-repeat
+    position: center
+    size: cover
+    color: $dark-accent-color
+  z-index: 1
+  color: #fff
+  text-align: center
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: rgba($dark-accent-color, 0.94)
+    z-index: -1
+  .section-title
+    margin-bottom: 15px
+    color: #fff
+  p
+    font-weight: 500
+  &__form
+    margin-top: 50px
+    +r(767)
+      margin-top: 30px
+    .form-inline
+      justify-content: center
+    .wpcf7-form-control-wrap
+      max-width: 210px
+      +r(767)
+        max-width: none

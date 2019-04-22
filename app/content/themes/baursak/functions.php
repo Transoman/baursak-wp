@@ -204,3 +204,9 @@ require get_template_directory() . '/inc/widgets.php';
     $fragments['.tools__count'] = ob_get_clean();
     return $fragments;
   }
+
+/**
+ * Remove tag p in CF7
+ */
+//  add_filter( 'wpcf7_load_css', '__return_false' );
+  add_filter( 'wpcf7_autop_or_not', '__return_false' );

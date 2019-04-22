@@ -10,3 +10,10 @@
     ));
 
   }
+
+  function my_acf_init() {
+
+    acf_update_setting('google_api_key', 'AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4');
+  }
+
+  add_action('acf/init', 'my_acf_init');
