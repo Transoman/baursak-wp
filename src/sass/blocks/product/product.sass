@@ -2,7 +2,7 @@
   .product
     display: flex
     flex-direction: column
-    height: 100%
+    height: calc(100% - 30px)
     border: 1px solid $border-color
     border-radius: 12px
     background-color: #fff
@@ -48,6 +48,7 @@
           color: $accent
 
   div.product
+    margin-bottom: 30px
     span.onsale
       display: inline-block
       min-height: auto

@@ -5,7 +5,8 @@ var svg4everybody = require('svg4everybody'),
   Swiper = require('swiper'),
   popup = require('jquery-popup-overlay'),
   simplebar = require('simplebar'),
-  Imask = require('imask');
+  Imask = require('imask'),
+  readmore = require('readmore-js');
 
 jQuery(document).ready(function($) {
   // Toggle nav menu
@@ -299,6 +300,13 @@ jQuery(document).ready(function($) {
     });
 
   }
+
+  // Readmore
+  $('.filter').readmore({
+    collapsedHeight: 115,
+    moreLink: '<a href="#" class="btn">Показать еще</a>',
+    lessLink: '<a href="#" class="btn">Спрятать</a>'
+  });
 
   // SVG
   svg4everybody({});

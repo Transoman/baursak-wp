@@ -93,10 +93,7 @@ if ( ! function_exists( 'baursak_setup' ) ) :
     /**
      * Woocommerce support
      */
-    function baursak_add_woocommerce_support() {
-      add_theme_support( 'woocommerce' );
-    }
-    add_action( 'after_setup_theme', 'baursak_add_woocommerce_support' );
+    add_theme_support( 'woocommerce' );
   }
 endif;
 add_action( 'after_setup_theme', 'baursak_setup' );
@@ -208,5 +205,4 @@ require get_template_directory() . '/inc/widgets.php';
 /**
  * Remove tag p in CF7
  */
-//  add_filter( 'wpcf7_load_css', '__return_false' );
   add_filter( 'wpcf7_autop_or_not', '__return_false' );

@@ -25,7 +25,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 
-<?php if (is_shop()): ?> <div class="col-lg-4"> <?php endif; ?>
+<?php if (is_shop()): ?> <div class="col-md-6 col-xl-4"> <?php endif; ?>
   <div <?php wc_product_class( '', $product ); ?>>
     <?php
     /**

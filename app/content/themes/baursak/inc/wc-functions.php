@@ -94,3 +94,10 @@
   function woocommerce_widget_shopping_cart_proceed_to_checkout() {
     echo '<a href="' . esc_url( wc_get_checkout_url() ) . '" class="btn checkout wc-forward">' . esc_html__( 'Checkout', 'woocommerce' ) . '</a>';
   }
+
+  /**
+   * Remove actions
+   */
+  remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+  remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+  remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
