@@ -5,6 +5,8 @@
 @import 'small-form-search'
 @import 'small-cart'
 @import 'breadcrumbs'
+@import 'search-form'
+@import 'quantity'
 
 
 .simplebar-track.simplebar-vertical
@@ -15,3 +17,58 @@
   right: 0
   &::before
     background: $descr-color
+
+.close-btn
+  position: relative
+  width: 45px
+  height: 45px
+  padding: 0
+  border-radius: 50%
+  border: 1px solid $border-color
+  background-color: #fff
+  margin-left: auto
+  +trans
+  &:hover, &:focus
+    background-color: $accent
+    border-color: $accent
+    outline: none
+    &::before, &::after
+      background-color: #fff
+  &::before, &::after
+    content: ''
+    position: absolute
+    top: 21px
+    right: 13px
+    width: 40%
+    height: 1px
+    background-color: $main-color
+    +trans
+  &::before
+    transform: rotate(45deg)
+  &::after
+    transform: rotate(-45deg)
+
+.filter-toggle
+  position: fixed
+  top: 150px
+  left: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 32px
+  height: 32px
+  padding: 0
+  border: 0
+  border-radius: 0 3px 3px 0
+  z-index: 1
+  background-color: $dark-accent-color
+  +trans
+  &:hover, &:focus
+    background-color: $accent
+    outline: none
+  +rmin(993)
+    display: none
+  &__icon
+    width: 17px
+    height: 17px
+    fill: #fff

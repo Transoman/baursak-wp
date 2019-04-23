@@ -1,0 +1,30 @@
+.search-form
+  position: relative
+  label
+    margin: 0
+    width: 100%
+  .search-field
+    padding-right: 55px
+  .search-submit
+    position: absolute
+    top: 0
+    right: 0
+    width: 49px
+    height: 49px
+    background-color: #fff
+    padding: 0
+    border-radius: 50%
+    border: 1px solid $border-color
+    +trans
+    &:hover, &:focus
+      outline: none
+      background-color: $accent
+      border-color: $accent
+      .search-form
+        &__icon
+          fill: #fff
+  &__icon
+    width: 18px
+    height: 18px
+    fill: $border-color
+    +trans

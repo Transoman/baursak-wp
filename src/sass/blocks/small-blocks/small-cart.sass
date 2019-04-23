@@ -9,7 +9,7 @@
   box-shadow: 0 0 5px rgba(#000, 0.06)
   overflow-y: auto
   +trans
-  transform: translateX(100%)
+  transform: translateX(150%)
   z-index: 102
   +r(767)
     width: 100%
@@ -27,35 +27,6 @@
     margin-bottom: 25px
   &__title
     margin: 0
-  &__close
-    position: relative
-    width: 45px
-    height: 45px
-    padding: 0
-    border-radius: 50%
-    border: 1px solid $border-color
-    background-color: #fff
-    margin-left: auto
-    +trans
-    &:hover, &:focus
-      background-color: $accent
-      border-color: $accent
-      outline: none
-      &::before, &::after
-        background-color: #fff
-    &::before, &::after
-      content: ''
-      position: absolute
-      top: 21px
-      right: 13px
-      width: 40%
-      height: 1px
-      background-color: $main-color
-      +trans
-    &::before
-      transform: rotate(45deg)
-    &::after
-      transform: rotate(-45deg)
 
 
 .woocommerce.widget_shopping_cart

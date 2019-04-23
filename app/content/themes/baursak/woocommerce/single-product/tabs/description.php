@@ -1,8 +1,8 @@
 <?php
 /**
- * Product loop sale flash
+ * Description tab
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/loop/sale-flash.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product/tabs/description.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -11,22 +11,16 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version     2.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-global $post, $product;
+global $post;
 
 ?>
-<?php if ( $product->is_on_sale() ) : ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="woo-onsale">' . esc_html__( 'Скидка', 'woocommerce' ) . '</span>', $post, $product ); ?>
-
-<?php endif;
-
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+<?php the_content(); ?>

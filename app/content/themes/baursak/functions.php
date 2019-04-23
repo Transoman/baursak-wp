@@ -94,6 +94,7 @@ if ( ! function_exists( 'baursak_setup' ) ) :
      * Woocommerce support
      */
     add_theme_support( 'woocommerce' );
+//    add_theme_support( 'wc-product-gallery-lightbox' );
   }
 endif;
 add_action( 'after_setup_theme', 'baursak_setup' );

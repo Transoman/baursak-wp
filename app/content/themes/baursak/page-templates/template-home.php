@@ -81,7 +81,7 @@
               <div class="col-md-6 col-lg-8 col-xl-9">
                 <?php $feature_products = get_featured_products();
                 if ($feature_products->have_posts()): ?>
-                  <div class="recommend-slider woocommerce swiper-container">
+                  <div class="recommend-slider products swiper-container">
                     <div class="swiper-wrapper">
                       <?php while ($feature_products->have_posts()): $feature_products->the_post(); ?>
                         <div class="swiper-slide">

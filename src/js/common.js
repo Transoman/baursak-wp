@@ -87,6 +87,49 @@ jQuery(document).ready(function($) {
     }
   });
 
+  var productThumbSlider = new Swiper('.woo-product-thumb-slider', {
+    slidesPerView: 3,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      767: {
+        slidesPerView: 5,
+        spaceBetween: 10
+      },
+      480: {
+        slidesPerView: 4,
+        spaceBetween: 10
+      }
+    }
+  });
+
+  var productSlider = new Swiper('.woo-product-slider', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  $('.woo-product-thumb-slider__item').click(function(e) {
+    var activeIndex = productThumbSlider.clickedIndex;
+    productSlider.slideTo(activeIndex);
+    $('.woo-product-thumb-slider__item').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  productSlider.on('slideChange', function() {
+    var currentItem = productSlider.activeIndex;
+    $('.woo-product-thumb-slider__item').removeClass('active');
+    productThumbSlider.slideTo(currentItem);
+    $(productThumbSlider.$wrapperEl).children().eq(currentItem).addClass('active');
+  });
+
   // Toggle search form
   $('.tools__btn--search').click(function(e) {
     e.preventDefault();
@@ -118,11 +161,29 @@ jQuery(document).ready(function($) {
   $('.tools__item--cart .tools__btn').click(function(e) {
     e.preventDefault();
     $('.small-cart').toggleClass('is-active');
+    $('.cart-overlay').toggleClass('is-active');
   });
 
   $('.small-cart__close').click(function(e) {
     e.preventDefault();
     $('.small-cart').removeClass('is-active');
+    $('.cart-overlay').removeClass('is-active');
+  });
+
+  $('.cart-overlay').click(function(e) {
+    e.preventDefault();
+    $('.small-cart').removeClass('is-active');
+    $('.cart-overlay').removeClass('is-active');
+  });
+
+  $('.widget-area__close').click(function(e) {
+    e.preventDefault();
+    $('.widget-area').removeClass('is-active');
+  });
+
+  $('.filter-toggle').click(function(e) {
+    e.preventDefault();
+    $('.widget-area').toggleClass('is-active');
   });
 
   // Map
@@ -306,6 +367,57 @@ jQuery(document).ready(function($) {
     collapsedHeight: 115,
     moreLink: '<a href="#" class="btn">Показать еще</a>',
     lessLink: '<a href="#" class="btn">Спрятать</a>'
+  });
+
+  // Qty buton
+  function changeProductQuantity() {
+    $(document).on( 'click', '.woo-quantity__btn', function(e) {
+      e.preventDefault();
+
+      var $button = $( this ),
+        $qty = $button.siblings( '.woo-quantity__val' ),
+        current = parseInt( $qty.val() && $qty.val() > 0 ? $qty.val() : 0, 10 ),
+        min = parseInt( $qty.attr( 'min' ), 10 ),
+        max = parseInt( $qty.attr( 'max' ), 10 );
+
+      min = min ? min : 0;
+      max = max ? max : current + 1;
+
+      if ( $button.hasClass( 'woo-quantity__btn--minus' ) && current > min ) {
+        $qty.val( current - 1 );
+        $qty.trigger( 'change' );
+      }
+
+      if ( $button.hasClass( 'woo-quantity__btn--plus' ) && current < max ) {
+        $qty.val( current + 1 );
+        $qty.trigger( 'change' );
+      }
+
+      $( '.woocommerce-cart-form' ).find( ':input[name="update_cart"]' ).prop( 'disabled', false );
+      $("[name='update_cart']").trigger("click");
+    });
+  }
+
+  changeProductQuantity();
+
+  $('.quantity__val').keydown(function (e) {
+    // Allow: backspace, delete, tab, escape, enter and .
+    if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+      // Allow: Ctrl/cmd+A
+      (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+      // Allow: Ctrl/cmd+C
+      (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+      // Allow: Ctrl/cmd+X
+      (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+      // Allow: home, end, left, right
+      (e.keyCode >= 35 && e.keyCode <= 39)) {
+      // let it happen, don't do anything
+      return;
+    }
+    // Ensure that it is a number and stop the keypress
+    if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+      e.preventDefault();
+    }
   });
 
   // SVG

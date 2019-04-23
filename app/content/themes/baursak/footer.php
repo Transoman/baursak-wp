@@ -3,7 +3,7 @@
   <footer class="footer">
     <div class="container">
       <?php if (get_field('footer_logo', 'option')): ?>
-        <div class="footer__logo logo">
+        <a href="<?php echo home_url( '/' ) ?>" class="footer__logo logo">
           <div class="logo__left">
             <?php echo wp_get_attachment_image(get_field('footer_logo', 'option')); ?>
           </div>
@@ -11,7 +11,7 @@
             <span class="logo__title">Баурсак</span>
             <span class="logo__descr">Продукты питания</span>
           </div>
-        </div>
+        </a>
       <?php endif; ?>
 
       <?php if (get_field('copyright', 'option')): ?>

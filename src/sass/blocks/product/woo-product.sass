@@ -1,0 +1,160 @@
+.woocommerce
+  .woo-product
+    .breadcrumbs
+      margin-bottom: 30px
+    &__gallery
+      position: relative
+      .woo-onsale
+        position: absolute
+        top: 30px
+        left: 20px
+        z-index: 2
+    &__summary
+      padding-top: 40px
+      h1
+        margin-bottom: 5px
+        font-size: 24px
+      .woocommerce-product-details__short-description
+        font-weight: 500
+        color: $descr-color
+    div.woo-product__summary
+      p.price
+        margin:
+          top: 25px
+          bottom: 25px
+        font-size: 20px
+        font-weight: 600
+        color: $dark-accent-color
+        del
+          font-size: 14px
+        ins
+          text-decoration: none
+        .woocommerce-Price-currencySymbol
+          font-size: 14px
+      form.cart
+        display: flex
+        align-items: center
+        +r(480)
+          flex-direction: column
+          align-items: flex-start
+        .woo-quantity
+          margin-right: 25px
+          +r(480)
+            margin-right: 0
+            margin-bottom: 25px
+        .button
+          padding: 13px 15px
+          border-radius: 25px
+          border: 2px solid $accent
+          background-color: #fff
+          color: $accent
+          font-size: 12px
+          line-height: 1
+          font-weight: 600
+          +trans
+          +r(480)
+            width: 100%
+          &:hover, &:focus
+            background-color: $accent
+            color: #fff
+            outline: none
+            svg
+              fill: #fff
+          svg
+            width: 18px
+            height: 16px
+            fill: $accent
+            margin-right: 10px
+            +trans
+          span
+            vertical-align: middle
+    div.woo-product-tabs
+      margin-top: 30px
+      ul.tabs
+        padding: 0
+        margin-bottom: 35px
+        text-align: center
+        +r(480)
+          margin-bottom: 20px
+        &::before
+          display: none
+        .tabs__item
+          padding: 4px 15px
+          border: 2px solid $border-color
+          border-radius: 25px
+          margin-right: 10px
+          background-color: #fff
+          +trans
+          +r(480)
+            width: 100%
+            margin: 0 0 10px
+          &:last-child
+            margin-right: 0
+          &::before, &::after
+            display: none
+          &.active
+            border-bottom: 2px solid $border-color
+            background-color: $border-color
+          a
+            padding: 0
+            font-weight: 600
+      .panel
+        padding: 20px 25px
+        border: 1px solid $border-color
+        border-radius: 6px
+        +r(480)
+          padding: 15px
+        p
+          &:last-child
+            margin-bottom: 0
+
+.woo-product-slider
+  margin: 0 -15px
+  padding: 20px 15px
+  &__item
+    height: auto
+    border-radius: 3px
+    overflow: hidden
+    box-shadow: 0 0 10px rgba(#000, 0.08)
+
+  .swiper-pagination
+    bottom: 40px
+
+.woo-product-thumb-slider
+  &__item
+    border-radius: 3px
+    border: 1px solid $border-color
+    overflow: hidden
+    +trans
+    cursor: pointer
+    &.active
+      border-color: $accent
+  .swiper-button-next
+    right: 0
+  swiper-button-prev
+    left: 0
+
+.woo-product-attributes
+  width: 100%
+  font-size: 13px
+  font-weight: 600
+  color: $header-link-color
+  th, td
+    padding: 10px
+    +r(576)
+      display: block
+      text-align: center
+      &:nth-child(odd)
+        background-color: $bg-color
+  th
+    font-weight: 500
+    color: #999
+    width: 23.45%
+    white-space: nowrap
+    +r(576)
+      width: 100%
+  tr
+    &:nth-child(odd)
+      background-color: $bg-color
+      +r(576)
+        background: none

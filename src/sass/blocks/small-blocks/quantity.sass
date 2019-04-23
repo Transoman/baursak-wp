@@ -1,0 +1,67 @@
+.woo-quantity
+  display: flex
+  align-items: center
+  border: 1px solid $border-color
+  border-radius: 25px
+  height: 46px
+  overflow: hidden
+  &__btn
+    position: relative
+    width: 30px
+    height: 100%
+    padding: 0
+    background: #fff
+    border-radius: 5px
+    border: 0
+    color: $main-color
+    font-size: 0
+    +trans
+    &:hover
+      border-color: $accent
+      &::before, &::after
+        background-color: $accent
+    &:focus
+      outline: none
+      border-color: $accent
+      //background-color: $accent
+      &::before, &::after
+        background-color: $accent
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      width: 10px
+      height: 2px
+      background-color: $main-color
+      +trans
+    &--plus
+      &::after
+        content: ''
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%) rotate(90deg)
+        width: 10px
+        height: 2px
+        background-color: $main-color
+        +trans
+  &__val
+    width: 45px !important
+    padding: 0 5px
+    border: none
+    box-shadow: none
+    appearance: none
+    -moz-appearance: textfield
+    font-size: 14px
+    font-weight: 600
+    color: #999
+    text-align: center
+    background: none
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button
+      appearance: none
+      margin: 0
+    &:focus
+      outline: none

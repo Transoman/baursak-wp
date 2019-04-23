@@ -84,10 +84,11 @@
               <div class="small-cart">
                 <div class="small-cart__header">
                   <h4 class="small-cart__title">Корзина</h4>
-                  <button type="button" class="small-cart__close"></button>
+                  <button type="button" class="small-cart__close close-btn"></button>
                 </div>
                 <?php the_widget( 'Custom_WC_Widget_Cart', false ); ?>
               </div>
+              <div class="cart-overlay"></div>
             </div>
             <div class="tools__item">
               <a href="#" class="tools__btn user-menu__link">

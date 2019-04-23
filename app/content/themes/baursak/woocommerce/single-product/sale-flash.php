@@ -1,8 +1,8 @@
 <?php
 /**
- * Product loop sale flash
+ * Single Product Sale Flash
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/loop/sale-flash.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product/sale-flash.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -11,7 +11,6 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
  * @package 	WooCommerce/Templates
  * @version     1.6.4
  */
