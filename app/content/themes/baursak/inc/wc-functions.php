@@ -109,3 +109,40 @@
   add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 5 );
 
   remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+
+  remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+
+
+  add_filter( 'wc_add_to_cart_message_html', 'custom_add_to_cart_message_html', 10, 2 );
+  function custom_add_to_cart_message_html( $message, $products ) {
+    $titles = array();
+    $count  = 0;
+
+    if ( ! is_array( $products ) ) {
+      $products = array( $products => 1 );
+      $show_qty = false;
+    }
+
+    if ( ! $show_qty ) {
+      $products = array_fill_keys( array_keys( $products ), 1 );
+    }
+
+    foreach ( $products as $product_id => $qty ) {
+      /* translators: %s: product name */
+      $titles[] = apply_filters( 'woocommerce_add_to_cart_qty_html', ( $qty > 1 ? absint( $qty ) . ' &times; ' : '' ), $product_id ) . apply_filters( 'woocommerce_add_to_cart_item_name_in_quotes', sprintf( _x( '&ldquo;%s&rdquo;', 'Item name in quotes', 'woocommerce' ), strip_tags( get_the_title( $product_id ) ) ), $product_id );
+      $count   += $qty;
+    }
+
+    $titles = array_filter( $titles );
+    /* translators: %s: product name */
+    $added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', $count, 'woocommerce' ), wc_format_list_of_items( $titles ) );
+
+    // Output success messages.
+    if ( 'yes' === get_option( 'woocommerce_cart_redirect_after_add' ) ) {
+      $return_to = apply_filters( 'woocommerce_continue_shopping_redirect', wc_get_raw_referer() ? wp_validate_redirect( wc_get_raw_referer(), false ) : wc_get_page_permalink( 'shop' ) );
+      $message   = sprintf( '<sapn>%s</sapn> <a href="%s" tabindex="1" class="btn wc-forward">%s</a>', esc_html( $added_text ), esc_url( $return_to ), esc_html__( 'Continue shopping', 'woocommerce' ) );
+    } else {
+      $message = sprintf( '<span>%s</span> <a href="%s" tabindex="1" class="btn wc-forward">%s</a>', esc_html( $added_text ), esc_url( wc_get_page_permalink( 'cart' ) ), esc_html__( 'View cart', 'woocommerce' ) );
+    }
+    return $message;
+  }

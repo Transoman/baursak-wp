@@ -1,0 +1,92 @@
+.comment-list
+  margin: 0 0 30px
+  padding: 0
+  list-style: none
+  &__item
+    margin-bottom: 25px
+    &:last-child
+      .comment-list
+        &__content
+          border-bottom: 0
+    &-wrap
+      display: flex
+      align-items: flex-start
+    .avatar
+      flex-shrink: 0
+      border-radius: 50%
+      margin-right: 25px
+      +r(576)
+        display: none
+    .woocommerce-review__awaiting-approval
+      color: $descr-color
+    .woocommerce-review__author
+      font-size: 16px
+      font-weight: 600
+      color: $header-link-color
+    .meta
+      margin-bottom: 10px
+    .description
+      font-size: 13px
+  &__content
+    padding-bottom: 25px
+    border-bottom: 1px solid $border-color
+
+.comment-form
+  .comment-notes
+    margin-bottom: 30px !important
+
+.comment-form-cookies-consent
+  margin-top: 20px !important
+  input
+    @extend .visually-hidden
+    &:checked ~ label
+      &::before
+        background-color: $accent
+        border-color: $accent
+      &::after
+        opacity: 1
+        visibility: visible
+  label
+    position: relative
+    padding-left: 25px
+    cursor: pointer
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      width: 18px
+      height: 18px
+      border: 2px solid $border-color
+      border-radius: 3px
+      +trans
+    &::after
+      content: ''
+      position: absolute
+      left: 9px
+      top: 9px
+      border: 3px solid #fff
+      border-top: 0
+      width: 6px
+      height: 9px
+      border-left: 0
+      transform: translate(-50%, -60%) rotate(45deg)
+      opacity: 0
+      visibility: hidden
+      +trans
+
+#review_form
+  .comment-reply-title
+    display: block
+    margin-bottom: 15px
+    font-size: 20px
+    font-weight: 600
+    color: $header-link-color
+
+.woocommerce
+  #respond
+    input#submit
+      @extend .btn
+      +r(480)
+        width: 100%
+      &::after
+        display: none

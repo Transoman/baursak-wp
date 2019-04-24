@@ -49,3 +49,36 @@
   text-transform: uppercase
   line-height: 1.3
   letter-spacing: 1px
+
+.woocommerce-message
+  display: flex
+  //flex-wrap: wrap
+  align-items: flex-start
+  +r(767)
+    flex-direction: column
+    //align-items: flex-start
+    padding: 1em 2.5em
+  &::before
+    +r(767)
+      left: 1em
+  span
+    padding-right: 15px
+    +r(767)
+      padding-right: 0
+  .btn
+    margin-left: auto
+    flex-shrink: 0
+    +r(767)
+      margin: 30px auto 0
+
+.woocommerce-cart-form
+  .woo-quantity
+    display: inline-flex
+  button.button
+    @extend .btn
+    &:disabled, &:disabled[disabled]
+      @extend .btn
+      &:hover
+        background-color: $accent
+        &::after
+          transform: none
