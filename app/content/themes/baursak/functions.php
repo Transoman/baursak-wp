@@ -207,3 +207,11 @@ require get_template_directory() . '/inc/widgets.php';
  * Remove tag p in CF7
  */
   add_filter( 'wpcf7_autop_or_not', '__return_false' );
+
+  if (!is_admin()) {
+    add_action( 'wp_enqueue_scripts', 'my_enqueue_style', 99 );
+    function my_enqueue_style(){
+      wp_dequeue_style( 'robokassa_payment_admin_style_menu' );
+      wp_dequeue_style( 'robokassa_payment_admin_style_main' );
+    }
+  }
