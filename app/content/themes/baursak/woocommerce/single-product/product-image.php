@@ -38,7 +38,38 @@
       <div class="woo-product-slider__item swiper-slide">
         <?php
           if ( $product->get_image_id() ) {
-            $html = wc_get_gallery_image_html( $post_thumbnail_id, true );
+            $main_image = true;
+//            $html = wc_get_gallery_image_html( $post_thumbnail_id, true );
+            $flexslider        = (bool) apply_filters( 'woocommerce_single_product_flexslider_enabled', get_theme_support( 'wc-product-gallery-slider' ) );
+            $gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
+            $thumbnail_size    = apply_filters( 'woocommerce_gallery_thumbnail_size', array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] ) );
+            $image_size        = apply_filters( 'woocommerce_gallery_image_size', $flexslider || $main_image ? 'woocommerce_single' : $thumbnail_size );
+            $full_size         = apply_filters( 'woocommerce_gallery_full_size', apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' ) );
+            $thumbnail_src     = wp_get_attachment_image_src( $post_thumbnail_id, $thumbnail_size );
+            $full_src          = wp_get_attachment_image_src( $post_thumbnail_id, $full_size );
+            $alt_text          = trim( wp_strip_all_tags( get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true ) ) );
+            $image             = wp_get_attachment_image(
+              $post_thumbnail_id,
+              $image_size,
+              false,
+              apply_filters(
+                'woocommerce_gallery_image_html_attachment_image_params',
+                array(
+                  'title'                   => _wp_specialchars( get_post_field( 'post_title', $post_thumbnail_id ), ENT_QUOTES, 'UTF-8', true ),
+                  'data-caption'            => _wp_specialchars( get_post_field( 'post_excerpt', $post_thumbnail_id ), ENT_QUOTES, 'UTF-8', true ),
+                  'data-src'                => esc_url( $full_src[0] ),
+                  'data-large_image'        => esc_url( $full_src[0] ),
+                  'data-large_image_width'  => esc_attr( $full_src[1] ),
+                  'data-large_image_height' => esc_attr( $full_src[2] ),
+                  'class'                   => esc_attr( $main_image ? 'wp-post-image' : '' ),
+                ),
+                $post_thumbnail_id,
+                $image_size,
+                $main_image
+              )
+            );
+
+            echo '<div data-thumb="' . esc_url( $thumbnail_src[0] ) . '" data-thumb-alt="' . esc_attr( $alt_text ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_src[0] ) . '" data-fancybox="group">' . $image . '</a></div>';
           } else {
             $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
             $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
@@ -52,7 +83,40 @@
       <?php if ($attachment_ids):
         foreach ( $attachment_ids as $attachment_id ): ?>
           <div class="woo-product-slider__item swiper-slide">
-            <?php echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', wc_get_gallery_image_html( $attachment_id, true ), $attachment_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped ?>
+            <?php
+              $main_image = true;
+              //            $html = wc_get_gallery_image_html( $post_thumbnail_id, true );
+              $flexslider        = (bool) apply_filters( 'woocommerce_single_product_flexslider_enabled', get_theme_support( 'wc-product-gallery-slider' ) );
+              $gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
+              $thumbnail_size    = apply_filters( 'woocommerce_gallery_thumbnail_size', array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] ) );
+              $image_size        = apply_filters( 'woocommerce_gallery_image_size', $flexslider || $main_image ? 'woocommerce_single' : $thumbnail_size );
+              $full_size         = apply_filters( 'woocommerce_gallery_full_size', apply_filters( 'woocommerce_product_thumbnails_large_size', 'full' ) );
+              $thumbnail_src     = wp_get_attachment_image_src( $attachment_id, $thumbnail_size );
+              $full_src          = wp_get_attachment_image_src( $attachment_id, $full_size );
+              $alt_text          = trim( wp_strip_all_tags( get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) ) );
+              $image             = wp_get_attachment_image(
+                $attachment_id,
+                $image_size,
+                false,
+                apply_filters(
+                  'woocommerce_gallery_image_html_attachment_image_params',
+                  array(
+                    'title'                   => _wp_specialchars( get_post_field( 'post_title', $attachment_id ), ENT_QUOTES, 'UTF-8', true ),
+                    'data-caption'            => _wp_specialchars( get_post_field( 'post_excerpt', $attachment_id ), ENT_QUOTES, 'UTF-8', true ),
+                    'data-src'                => esc_url( $full_src[0] ),
+                    'data-large_image'        => esc_url( $full_src[0] ),
+                    'data-large_image_width'  => esc_attr( $full_src[1] ),
+                    'data-large_image_height' => esc_attr( $full_src[2] ),
+                    'class'                   => esc_attr( $main_image ? 'wp-post-image' : '' ),
+                  ),
+                  $attachment_id,
+                  $image_size,
+                  $main_image
+                )
+              );
+
+              echo '<div data-thumb="' . esc_url( $thumbnail_src[0] ) . '" data-thumb-alt="' . esc_attr( $alt_text ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_src[0] ) . '" data-fancybox="group">' . $image . '</a></div>';
+            ?>
           </div>
         <?php endforeach;
       endif; ?>

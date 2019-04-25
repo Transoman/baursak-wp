@@ -36,6 +36,14 @@
     echo '</div>';
   }
 
+  add_action( 'woocommerce_after_shop_loop_item', 'baursak_woocommerce_loop_product_cat', 5 );
+
+  function baursak_woocommerce_loop_product_cat() {
+    global $product;
+
+    echo '<div class="product__cat">' . wc_get_product_category_list($product->get_id()) . '</div>';
+  }
+
   add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_title', 5 );
 
   function woocommerce_template_loop_product_title() {
@@ -45,6 +53,10 @@
 
     echo '<h3 class="product__title"><a href="' . esc_url( $link ) . '">' . get_the_title() . '</a></h3>';
   }
+
+
+
+
 
 
   add_action( 'woocommerce_after_shop_loop_item', 'baursak_woocommerce_template_loop_product_wrap_bottom_open', 5 );
@@ -146,3 +158,32 @@
     }
     return $message;
   }
+
+
+  /**
+   * Replace english units to rus
+   * @param $weight
+   * @return mixed
+   */
+  function localize_demensions_units_kg($weight) {
+    return str_replace('kg', 'кг', $weight);
+  }
+  add_filter('woocommerce_format_weight', 'localize_demensions_units_kg');
+
+  /**
+   * Replace english units to rus
+   * @param $dimensions
+   * @return mixed
+   */
+  function localize_demensions_units_mm($dimensions) {
+    return str_replace('mm', 'мм', $dimensions);
+  }
+  add_filter('woocommerce_format_dimensions', 'localize_demensions_units_mm');
+
+
+  function archive_postcount_filter ($variable) {
+    $variable = str_replace('(', ' ', $variable);
+    $variable = str_replace(')', ' ', $variable);
+    return $variable;
+  }
+  add_filter('woocommerce_layered_nav_count', 'archive_postcount_filter');

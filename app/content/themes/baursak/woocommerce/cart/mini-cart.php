@@ -83,7 +83,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
       <?php echo baursak_get_icon('cart', 'cart-empty__icon'); ?>
     </div>
     <h4 class="cart-empty__title"><?php _e( 'No products in the cart.', 'woocommerce' ); ?></h4>
-    <a href="/shop" class="btn">В каталог</a>
+    <a href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>" class="btn">В каталог</a>
   </div>
 
 

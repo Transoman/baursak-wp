@@ -57,12 +57,6 @@ if ( ! function_exists( 'baursak_setup' ) ) :
       'caption',
     ) );
 
-    // Set up the WordPress core custom background feature.
-    add_theme_support( 'custom-background', apply_filters( 'baursak_custom_background_args', array(
-      'default-color' => 'ffffff',
-      'default-image' => '',
-    ) ) );
-
     // Add theme support for selective refresh for widgets.
     add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -172,15 +166,22 @@ if ( defined( 'JETPACK__VERSION' ) ) {
   require get_template_directory() . '/inc/jetpack.php';
 }
 
+  /**
+   * Helpers function
+   */
+  require get_template_directory() . '/inc/helpers.php';
+
 /**
  * ACF
  */
 require get_template_directory() . '/inc/acf.php';
 
-/**
- * Woocommerce functions
- */
-require get_template_directory() . '/inc/wc-functions.php';
+  if ( class_exists( 'WooCommerce' ) ) {
+    /**
+     * Woocommerce functions
+     */
+    require get_template_directory() . '/inc/wc-functions.php';
+  }
 
 /**
  * Widgets

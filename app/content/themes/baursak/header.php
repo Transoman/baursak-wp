@@ -67,13 +67,14 @@
               <button type="button" class="tools__btn tools__btn--search">
                 <?php baursak_the_icon('search', 'tools__icon small-search__icon'); ?>
               </button>
-              <form action="<?php esc_url(home_url('/')); ?>" method="get" class="small-form-search">
+              <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="small-form-search">
                 <div class="small-form-search__group">
                   <input type="text" name="s" placeholder="Поиск...">
                   <button type="submit" class="tools__btn">
                     <?php baursak_the_icon('search', 'tools__icon small-search__icon'); ?>
                   </button>
                 </div>
+                <input type="hidden" name="post_type" value="product" />
               </form>
             </div>
             <div class="tools__item tools__item--cart">

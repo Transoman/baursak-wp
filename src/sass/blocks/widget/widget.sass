@@ -134,3 +134,79 @@
     margin-bottom: 20px
     +rmin(993)
       display: none
+
+.woocommerce
+  &.woocommerce-widget-layered-nav
+    .btn
+      display: block
+      max-width: 160px
+      width: 100%
+      margin: 0 auto
+  .woocommerce-widget-layered-nav-list
+    overflow: hidden
+    margin-bottom: 20px
+    +trans
+    .woocommerce-widget-layered-nav-list__item
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 8px
+      &:last-child
+        margin-bottom: 0
+      &::before, &::after
+        display: none
+      &:hover
+        .count
+          background-color: $dark-accent-color
+          border-color: $dark-accent-color
+          color: #fff
+      a
+        position: relative
+        display: block
+        padding-left: 30px
+        font-weight: 500
+        color: $main-color
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          left: 0
+          width: 18px
+          height: 18px
+          border: 2px solid $border-color
+          border-radius: 3px
+          +trans
+        &::after
+          content: ''
+          position: absolute
+          top: 3px
+          left: 6px
+          background: none
+          border: 3px solid #fff
+          border-top: 0
+          width: 6px
+          height: 9px
+          border-left: 0
+          transform: rotate(45deg)
+          opacity: 0
+          visibility: hidden
+          +trans
+      .count
+        min-width: 23px
+        text-align: center
+        font-size: 11px
+        font-weight: 600
+        color: #999
+        border: 2px solid $border-color
+        border-radius: 25px
+        padding: 2px 6px
+        line-height: 1
+        +trans
+      &--chosen
+        a
+          &::before
+            background-color: $accent
+            border-color: $accent
+          &::after
+            opacity: 1
+            visibility: visible

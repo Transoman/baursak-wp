@@ -71,6 +71,13 @@
     +r(767)
       margin: 30px auto 0
 
+.woocommerce
+  .woocommerce-error
+    padding: 15px 30px 15px 50px
+    li
+      &::before
+        display: none
+
 .woocommerce-cart-form
   .woo-quantity
     display: inline-flex
@@ -82,3 +89,43 @@
         background-color: $accent
         &::after
           transform: none
+
+.woocommerce
+  form
+    .form-row-first
+      width: 50%
+      padding-right: 15px
+      +r(767)
+        width: 100%
+        padding: 3px
+    .form-row-last
+      width: 50%
+      padding-left: 15px
+      +r(767)
+        width: 100%
+        padding: 3px
+    .form-row
+      textarea
+        height: auto
+  .col2-set
+    width: auto
+    margin-bottom: 30px
+  ul.order_details
+    +r(767)
+      padding: 0
+    li
+      border-color: $border-color
+      +r(767)
+        width: 100%
+        padding: 0 0 15px
+        margin: 0 0 15px
+        border-right: 0
+        border-bottom: 1px dashed $border-color
+
+.woocommerce-thankyou-order-received
+  margin-bottom: 30px
+  font-size: 20px
+  font-weight: 600
+  color: $header-link-color
+
+//.woocommerce-checkout

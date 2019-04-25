@@ -6,7 +6,8 @@ var svg4everybody = require('svg4everybody'),
   popup = require('jquery-popup-overlay'),
   simplebar = require('simplebar'),
   Imask = require('imask'),
-  readmore = require('readmore-js');
+  readmore = require('readmore-js'),
+  fancybox = require('@fancyapps/fancybox');
 
 jQuery(document).ready(function($) {
   // Toggle nav menu
@@ -128,6 +129,18 @@ jQuery(document).ready(function($) {
     $('.woo-product-thumb-slider__item').removeClass('active');
     productThumbSlider.slideTo(currentItem);
     $(productThumbSlider.$wrapperEl).children().eq(currentItem).addClass('active');
+  });
+
+  $().fancybox({
+    selector : '[data-fancybox="group"]',
+    thumbs   : false,
+    hash     : false,
+    loop: true,
+    beforeClose : function(instance) {
+      if ($('.woo-product-slider').length) {
+        productSlider.slideTo( instance.currIndex);
+      }
+    }
   });
 
   // Toggle search form
@@ -339,15 +352,18 @@ jQuery(document).ready(function($) {
   *  @param	n/a
   *  @return	n/a
   */
-  // global var
-  var map = null;
 
-  $('.acf-map').each(function(){
+  // $(window).on('load', function() {
+    // global var
+    var map = null;
 
-    // create map
-    map = new_map( $(this) );
+    $('.acf-map').each(function() {
 
-  });
+      // create map
+      map = new_map( $(this) );
+
+    });
+  // });
 
   // Input Mask
   var inputsPhone = $('input[type="tel"]');
@@ -363,7 +379,7 @@ jQuery(document).ready(function($) {
   }
 
   // Readmore
-  $('.filter').readmore({
+  $('.filter, .woocommerce-widget-layered-nav-list').readmore({
     collapsedHeight: 115,
     moreLink: '<a href="#" class="btn">Показать еще</a>',
     lessLink: '<a href="#" class="btn">Спрятать</a>'

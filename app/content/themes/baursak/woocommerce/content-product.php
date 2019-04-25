@@ -25,7 +25,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 
-<?php if (is_shop()): ?> <div class="col-md-6 col-xl-4"> <?php endif; ?>
+<?php if (is_shop() || is_tax()): ?> <div class="col-md-6 col-xl-4"> <?php endif; ?>
   <div <?php wc_product_class( '', $product ); ?>>
     <?php
     /**
@@ -67,4 +67,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
     do_action( 'woocommerce_after_shop_loop_item' );
     ?>
   </div>
-<?php if (is_shop()): ?> </div> <?php endif; ?>
+<?php if (is_shop() || is_tax()): ?> </div> <?php endif; ?>

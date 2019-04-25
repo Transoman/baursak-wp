@@ -78,12 +78,13 @@
                 </div>
               </div>
 
-              <div class="col-md-6 col-lg-8 col-xl-9">
+              <div class="col-md-6 col-lg-8 col-xl-9 woocommerce">
                 <?php $feature_products = get_featured_products();
                 if ($feature_products->have_posts()): ?>
                   <div class="recommend-slider products swiper-container">
                     <div class="swiper-wrapper">
-                      <?php while ($feature_products->have_posts()): $feature_products->the_post(); ?>
+                      <?php while ($feature_products->have_posts()): $feature_products->the_post();
+                      $terms = get_the_terms( get_the_ID(), 'product_cat'); ?>
                         <div class="swiper-slide">
                           <?php wc_get_template_part( 'content', 'product' ); ?>
                         </div>

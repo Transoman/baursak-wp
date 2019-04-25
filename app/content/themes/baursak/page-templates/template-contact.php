@@ -30,7 +30,7 @@
               </div>
             <?php endwhile; ?>
           </div>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmnk4RCDwjSucIJ2WXRnLkuCrsWR4DUM4"></script>
         <?php endif; ?>
       </div>
     </div>

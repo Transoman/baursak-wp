@@ -30,6 +30,13 @@
 
 </div><!-- /.wrapper -->
 
+<div class="modal" id="callback">
+  <button class="modal__close callback_close"></button>
+
+  <h3 class="modal__title">Обратный звонок</h3>
+  <?php echo do_shortcode('[contact-form-7 id="171" title="Обратный звонок"]'); ?>
+</div>
+
 <?php wp_footer(); ?>
 
 </body>
