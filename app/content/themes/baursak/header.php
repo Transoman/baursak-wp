@@ -91,11 +91,11 @@
               </div>
               <div class="cart-overlay"></div>
             </div>
-            <div class="tools__item">
+            <!--<div class="tools__item">
               <a href="#" class="tools__btn user-menu__link">
-                <?php baursak_the_icon('user', 'tools__icon user-menu__icon'); ?>
+                <?php /*baursak_the_icon('user', 'tools__icon user-menu__icon'); */?>
               </a>
-            </div>
+            </div>-->
           </div>
 
           <button type="button" class="nav-toggle">

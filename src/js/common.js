@@ -385,6 +385,12 @@ jQuery(document).ready(function($) {
     lessLink: '<a href="#" class="btn">Спрятать</a>'
   });
 
+  $('.media-list__descr').readmore({
+    collapsedHeight: 115,
+    moreLink: '<a href="#" class="media-list__link">Показать еще</a>',
+    lessLink: '<a href="#" class="media-list__link">Спрятать</a>'
+  });
+
   // Qty buton
   function changeProductQuantity() {
     $(document).on( 'click', '.woo-quantity__btn', function(e) {

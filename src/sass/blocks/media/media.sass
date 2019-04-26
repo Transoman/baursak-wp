@@ -28,10 +28,10 @@
     &::before
       content: ''
       position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
+      top: -1px
+      right: -1px
+      bottom: -1px
+      left: -1px
       background-image: linear-gradient(rgba($header-link-color, 0), rgba($header-link-color, 1))
     img
       width: 100%
@@ -43,10 +43,22 @@
       height: auto
   &__descr
     position: relative
+    max-height: 65px
     margin:
       top: -20px
       left: 35px
+      bottom: 10px
     font-size: 12px
     line-height: 1.8
+    +trans
+    overflow: hidden
     p
-      margin: 0
+      &:last-child
+        margin: 0
+  &__link
+    margin-left: 35px
+    text-decoration: underline
+    color: #fff
+    font-weight: 500
+    &:hover, &:focus
+      color: $accent
