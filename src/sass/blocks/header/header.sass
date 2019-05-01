@@ -50,6 +50,7 @@
           justify-content: flex-end
   &__top
     display: flex
+    align-items: center
     padding: 15px 0
     position: relative
   &__bottom
@@ -65,11 +66,20 @@
   &__small-schedule
     +r(992)
       display: none
-  &__phone-right
+  &__socials
     margin-left: auto
     margin-right: 55px
+    +r(1200)
+      margin-right: 25px
     +r(992)
       display: none
     .socials
-      margin-top: 5px
-      justify-content: flex-end
+      &__item
+        margin-right: 10px
+  &__phone-right
+    margin-right: 55px
+    text-align: right
+    +r(1200)
+      margin-right: 25px
+    +r(992)
+      display: none

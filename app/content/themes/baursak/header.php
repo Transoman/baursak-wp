@@ -62,18 +62,14 @@
 
         <div class="header__top">
 
-          <div class="phone header__phone-right">
-            <?php if (get_field('whatsapp', 'option')): ?>
-              <a href="https://api.whatsapp.com/send?phone=<?php echo preg_replace('![^0-9]+!', '', get_field('whatsapp', 'option')); ?>" class="phone__tel" target="_blank"><?php the_field('whatsapp', 'option'); ?></a>
-            <?php endif; ?>
-
+          <div class="header__socials">
             <ul class="socials">
               <?php $socials = get_field('socials', 'option');
-               if ($socials['instagram']): ?>
-                <li class="socials__item">
-                  <a href="<?php echo esc_url($socials['instagram']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('instagram', 'socials__icon'); ?></a>
-                </li>
-              <?php endif; ?>
+                if ($socials['instagram']): ?>
+                  <li class="socials__item">
+                    <a href="<?php echo esc_url($socials['instagram']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('instagram', 'socials__icon'); ?></a>
+                  </li>
+                <?php endif; ?>
               <?php if ($socials['fb']): ?>
                 <li class="socials__item">
                   <a href="<?php echo esc_url($socials['fb']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('fb', 'socials__icon'); ?></a>
@@ -85,6 +81,13 @@
                 </li>
               <?php endif; ?>
             </ul>
+          </div>
+
+          <div class="phone header__phone-right">
+            <?php if (get_field('whatsapp', 'option')): ?>
+              <span class="phone__label">Мы онлайн</span>
+              <a href="https://api.whatsapp.com/send?phone=<?php echo preg_replace('![^0-9]+!', '', get_field('whatsapp', 'option')); ?>" class="phone__tel" target="_blank"><?php the_field('whatsapp', 'option'); ?></a>
+            <?php endif; ?>
           </div>
 
           <div class="tools header__tools">
