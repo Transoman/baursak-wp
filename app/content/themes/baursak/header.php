@@ -180,6 +180,7 @@
           <?php endif; ?>
 
           <?php if (get_field('whatsapp', 'option')): ?>
+            <span class="phone__label">Мы онлайн</span>
             <a href="https://api.whatsapp.com/send?phone=<?php echo preg_replace('![^0-9]+!', '', get_field('whatsapp', 'option')); ?>" class="phone__tel" target="_blank"><?php the_field('whatsapp', 'option'); ?></a>
           <?php endif; ?>
         </div>
