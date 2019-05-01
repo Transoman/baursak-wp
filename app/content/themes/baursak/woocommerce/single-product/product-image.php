@@ -85,7 +85,7 @@
           <div class="woo-product-slider__item swiper-slide">
             <?php
               $main_image = true;
-              //            $html = wc_get_gallery_image_html( $post_thumbnail_id, true );
+//                          $html = wc_get_gallery_image_html( $post_thumbnail_id, true );
               $flexslider        = (bool) apply_filters( 'woocommerce_single_product_flexslider_enabled', get_theme_support( 'wc-product-gallery-slider' ) );
               $gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
               $thumbnail_size    = apply_filters( 'woocommerce_gallery_thumbnail_size', array( $gallery_thumbnail['width'], $gallery_thumbnail['height'] ) );

@@ -9,6 +9,10 @@
     border-radius: 12px
     background-color: #fff
     overflow: hidden
+    &:hover
+      .woosq-btn
+        opacity: 1
+        visibility: visible
     &__img-wrap
       position: relative
       img
@@ -111,3 +115,16 @@
         margin: 0
       .product__add-cart
         display: none
+  .woosq-btn
+    position: absolute
+    left: 50%
+    top: 80px
+    transform: translateX(-50%)
+    white-space: nowrap
+    opacity: 0
+    visibility: hidden
+    +r(992)
+      opacity: 1
+      visibility: visible
+    &::after
+      display: none

@@ -62,6 +62,31 @@
 
         <div class="header__top">
 
+          <div class="phone header__phone-right">
+            <?php if (get_field('whatsapp', 'option')): ?>
+              <a href="https://api.whatsapp.com/send?phone=<?php echo preg_replace('![^0-9]+!', '', get_field('whatsapp', 'option')); ?>" class="phone__tel" target="_blank"><?php the_field('whatsapp', 'option'); ?></a>
+            <?php endif; ?>
+
+            <ul class="socials">
+              <?php $socials = get_field('socials', 'option');
+               if ($socials['instagram']): ?>
+                <li class="socials__item">
+                  <a href="<?php echo esc_url($socials['instagram']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('instagram', 'socials__icon'); ?></a>
+                </li>
+              <?php endif; ?>
+              <?php if ($socials['fb']): ?>
+                <li class="socials__item">
+                  <a href="<?php echo esc_url($socials['fb']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('fb', 'socials__icon'); ?></a>
+                </li>
+              <?php endif; ?>
+              <?php if ($socials['vk']): ?>
+                <li class="socials__item">
+                  <a href="<?php echo esc_url($socials['vk']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('vk', 'socials__icon'); ?></a>
+                </li>
+              <?php endif; ?>
+            </ul>
+          </div>
+
           <div class="tools header__tools">
             <div class="tools__item tools__item--search">
               <button type="button" class="tools__btn tools__btn--search">
@@ -150,7 +175,12 @@
           <?php if (get_field('phone', 'option')): ?>
             <a href="tel:<?php echo preg_replace('![^0-9]+!', '', get_field('phone', 'option')); ?>" class="phone__tel"><?php the_field('phone', 'option'); ?></a>
           <?php endif; ?>
+
+          <?php if (get_field('whatsapp', 'option')): ?>
+            <a href="https://api.whatsapp.com/send?phone=<?php echo preg_replace('![^0-9]+!', '', get_field('whatsapp', 'option')); ?>" class="phone__tel" target="_blank"><?php the_field('whatsapp', 'option'); ?></a>
+          <?php endif; ?>
         </div>
+
 
         <?php if (get_field('schedule', 'option')): ?>
           <div class="small-schedule mobile-menu__small-schedule">
@@ -158,6 +188,25 @@
             <p class="small-schedule__time"><?php the_field('schedule', 'option'); ?></p>
           </div>
         <?php endif; ?>
+
+        <ul class="socials mobile-menu__socials">
+          <?php $socials = get_field('socials', 'option');
+            if ($socials['instagram']): ?>
+              <li class="socials__item">
+                <a href="<?php echo esc_url($socials['instagram']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('instagram', 'socials__icon'); ?></a>
+              </li>
+            <?php endif; ?>
+          <?php if ($socials['fb']): ?>
+            <li class="socials__item">
+              <a href="<?php echo esc_url($socials['fb']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('fb', 'socials__icon'); ?></a>
+            </li>
+          <?php endif; ?>
+          <?php if ($socials['vk']): ?>
+            <li class="socials__item">
+              <a href="<?php echo esc_url($socials['vk']); ?>" class="socials__link" target="_blank"><?php baursak_the_icon('vk', 'socials__icon'); ?></a>
+            </li>
+          <?php endif; ?>
+        </ul>
       </div>
 
     </div>

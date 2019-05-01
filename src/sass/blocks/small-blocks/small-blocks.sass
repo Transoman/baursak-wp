@@ -7,6 +7,7 @@
 @import 'breadcrumbs'
 @import 'search-form'
 @import 'quantity'
+@import 'socials'
 
 
 .simplebar-track.simplebar-vertical
@@ -81,3 +82,96 @@
     flex-direction: column
     justify-content: center
     height: 100%
+
+
+#woosq-popup
+  .product_title
+    font-size: 24px
+  .price
+    font-size: 20px
+    font-weight: 600
+    color: $dark-accent-color
+    del
+      font-size: 14px
+    ins
+      text-decoration: none
+    .woocommerce-Price-currencySymbol
+      font-size: 14px
+  form.cart
+    display: flex
+    align-items: center
+    +r(480)
+      flex-direction: column
+      align-items: flex-start
+    .woo-quantity
+      margin-right: 25px
+      +r(480)
+        margin-right: 0
+        margin-bottom: 25px
+    .button
+      padding: 13px 15px
+      border-radius: 25px
+      border: 2px solid $accent
+      background-color: #fff
+      color: $accent
+      font-size: 12px
+      line-height: 1
+      font-weight: 600
+      +trans
+      +r(480)
+        width: 100%
+      &:hover, &:focus
+        background-color: $accent
+        color: #fff
+        outline: none
+        svg
+          fill: #fff
+      svg
+        width: 18px
+        height: 16px
+        fill: $accent
+        margin-right: 10px
+        +trans
+      span
+        vertical-align: middle
+  .slick-slider
+    .slick-arrow
+      width: 30px
+      height: 30px
+      line-height: 26px
+      background: #fff
+      border: 2px solid $border-color
+      border-radius: 50%
+      color: $descr-color
+      +trans
+      &::before
+        font-size: 16px
+        line-height: 26px
+      &:hover, &:focus
+        background-color: $accent
+        border-color: $accent
+        outline: none
+      &.slick-next
+        right: 15px
+      &.slick-prev
+        left: 15px
+    .slick-dots
+      li
+        width: 12px
+        height: 6px
+        margin: 0 4px
+        button
+          width: 12px
+          height: 6px
+          padding: 0
+          border-radius: 5px
+          background-color: #d5e4f0
+          opacity: 1
+          +trans
+          &::before
+            display: none
+        &.slick-active
+          width: 20px
+          button
+            width: 20px
+            background-color: rgba($accent, 1)
